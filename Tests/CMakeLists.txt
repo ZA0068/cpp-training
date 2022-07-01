@@ -1,0 +1,3 @@
+add_executable(cpp_practice_test_file main.cpp)
+
+target_link_libraries(cpp_practice_test_file PRIVATE exercises)
