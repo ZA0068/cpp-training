@@ -2,10 +2,15 @@
 
 namespace VeryEasy
 {
+    bool divisibleByFive(int);
+    bool profitableGamble(float, float, float);
     bool returnTrue();
-    int flipIntBool(int);
-    int circuitPower(int, int);
+    bool lessThan100(int, int);
+
     int addition(int, int);
     int animals(int, int, int);
+    int circuitPower(int, int);
+    int flipIntBool(int);
+    int inchesToFeet(int);
     int points(int, int);
 }

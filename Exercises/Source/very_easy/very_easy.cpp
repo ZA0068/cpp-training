@@ -29,3 +29,23 @@ int VeryEasy::points(int twoPointers, int threePointers)
 {
     return twoPointers * 2 + threePointers * 3;
 }
+
+int VeryEasy::inchesToFeet(int inches)
+{
+    return inches / 12;
+}
+
+bool VeryEasy::divisibleByFive(int number)
+{
+    return number % 5 == 0;
+}
+
+bool VeryEasy::profitableGamble(float prob, float prize, float pay)
+{
+    return prob * prize > pay;
+}
+
+bool VeryEasy::lessThan100(int a, int b)
+{
+    return a + b < 100;
+}
