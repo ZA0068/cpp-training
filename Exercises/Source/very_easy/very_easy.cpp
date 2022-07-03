@@ -49,3 +49,58 @@ bool VeryEasy::lessThan100(int a, int b)
 {
     return a + b < 100;
 }
+
+int VeryEasy::addition(int a)
+{
+    return a + 1;
+}
+
+int VeryEasy::convert(int minutes)
+{
+    return minutes * 60;
+}
+
+int VeryEasy::triArea(int base, int height)
+{
+    return base * height / 2;
+}
+
+int VeryEasy::howManySeconds(int hours)
+{
+    return hours * 3600;
+}
+
+int VeryEasy::nextEdge(int side1, int side2)
+{
+    return side1 + side2 - 1;
+}
+
+int VeryEasy::remainder(int a, int b)
+{
+    return a % b;
+}
+
+int VeryEasy::squared(int a)
+{
+    return a * a;
+}
+
+int VeryEasy::findPerimeter(int side1, int side2)
+{
+    return side1 * 2 + side2 * 2;
+}
+
+bool VeryEasy::isEqual(int a, int b)
+{
+    return a == b;
+}
+
+bool VeryEasy::lessThanOrEqualToZero(int number)
+{
+    return number <= 0;
+}
+
+int VeryEasy::convert(int hours, int minutes)
+{
+    return hours * 3600 + minutes * 60;
+}
