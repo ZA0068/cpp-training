@@ -1,0 +1,1 @@
+add_subdirectory(very_easy_test)

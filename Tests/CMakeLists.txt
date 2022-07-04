@@ -1,5 +1,8 @@
-add_executable(cpp_practice_test_file main.cpp)
+project(cpp_practice_test)
+add_executable(${PROJECT_NAME}
+    main.cpp
+)
 find_package(GTest REQUIRED)
 
-target_link_libraries(cpp_practice_test_file PRIVATE exercises GTest::GTest)
-add_test(VeryEasyTests cpp_practice_test_file)
+add_subdirectory(Sources)
+target_link_libraries(${PROJECT_NAME} PRIVATE exercises GTest::GTest)
