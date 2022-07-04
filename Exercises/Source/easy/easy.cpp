@@ -22,3 +22,13 @@ int Easy::numberSyllables(std::string word)
     }
     return syllables;
 }
+
+std::string Easy::longBurp(int times)
+{
+    std::string burp = "Burrrp";
+    for (int i = 0; i < times; i++)
+    {
+        burp += "r";
+    }
+    return burp;
+}
