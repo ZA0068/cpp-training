@@ -54,3 +54,32 @@ bool Easy::lastDig(int a, int b, int c)
 {
     return (a * b % 10) == (c % 10);
 }
+
+std::vector<int> Easy::pairs(std::pair<int, int> numpair)
+{
+    return std::vector<int>(numpair.first, numpair.second);
+}
+
+bool Easy::checkEquals(std::vector<int> arr1, std::vector<int> arr2) {
+	for (int i = 0; i < arr1.size(); i++)
+		if (arr1[i]!=arr2[i])
+            return false;
+    return true;
+}
+
+std::string Easy::maskify(std::string str)
+{
+    std::string masked = "";
+    for (int i = 0; i < str.size(); i++)
+    {
+        if (i < static_cast<int>(str.size() - 4))
+        {
+            masked += "#";
+        }
+        else
+        {
+            masked += str[i];
+        }
+    }
+    return masked;
+}

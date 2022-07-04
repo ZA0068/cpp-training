@@ -58,5 +58,34 @@ TEST(EasyTests, LastDigitUltimate)
     ASSERT_EQ(Easy::lastDig(-12, 15, -10), true);
     ASSERT_EQ(Easy::lastDig(15228, -9209, -72162), true);
 }
+TEST(EasyTests, PairManagement) {
+    ASSERT_EQ(Easy::pairs(std::make_pair(1, 2)), std::vector<int>(1, 2));
+    ASSERT_EQ(Easy::pairs(std::make_pair(21, 82)), std::vector<int>(21, 82));
+    ASSERT_EQ(Easy::pairs(std::make_pair(4213, 526)), std::vector<int>(4213, 526));
+}
+TEST(EasyTests, FixTheError) {
+    ASSERT_EQ(Easy::checkEquals({1, 3}, {1, 2}), false);
+    ASSERT_EQ(Easy::checkEquals({1, 2}, {1, 2}), true);
+    ASSERT_EQ(Easy::checkEquals({4, 5, 6}, {4, 5, 6}), true);
+    ASSERT_EQ(Easy::checkEquals({4, 7, 6}, {4, 5, 6}), false);
+ }
+TEST(EasyTests, MaskifyTheString) {
+    ASSERT_EQ(Easy::maskify("4556364607935616"), "############5616");
+    ASSERT_EQ(Easy::maskify("64607935616"), "#######5616");
+    ASSERT_EQ(Easy::maskify("1"), "1");
+    ASSERT_EQ(Easy::maskify(""), "");
+    ASSERT_EQ(Easy::maskify("tBy>L/cMe+?<j:6n;C~H"), "################;C~H");
+    ASSERT_EQ(Easy::maskify("12"), "12");
+    ASSERT_EQ(Easy::maskify("123"), "123");
+    ASSERT_EQ(Easy::maskify(")E$aCU=e\"_"), "######=e\"_");
+}
+
+
+
+
+
+
+
+
 
 
