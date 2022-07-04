@@ -43,6 +43,20 @@ TEST(EasyTests, TriangularNumberSequence) {
     ASSERT_EQ(Easy::triangle(8), 36);
     ASSERT_EQ(Easy::triangle(2153), 2318781);
 }
-
+TEST(EasyTests, LastDigitUltimate)
+{
+    ASSERT_EQ(Easy::lastDig(25, 21, 125), true);
+    ASSERT_EQ(Easy::lastDig(1, 1, 1), true);
+    ASSERT_EQ(Easy::lastDig(12, 15, 10), true);
+    ASSERT_EQ(Easy::lastDig(15228, 9209, 72162), true);
+    ASSERT_EQ(Easy::lastDig(15, 1, 1), false);
+    ASSERT_EQ(Easy::lastDig(123, 15, 10), false);
+    ASSERT_EQ(Easy::lastDig(5213, 99219, 6165), false);
+    ASSERT_EQ(Easy::lastDig(1523, 513, 512), false);
+    ASSERT_EQ(Easy::lastDig(-15, 1, 1), false);
+    ASSERT_EQ(Easy::lastDig(123, -15, 10), false);
+    ASSERT_EQ(Easy::lastDig(-12, 15, -10), true);
+    ASSERT_EQ(Easy::lastDig(15228, -9209, -72162), true);
+}
 
 

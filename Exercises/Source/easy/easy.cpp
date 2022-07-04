@@ -49,3 +49,8 @@ int Easy::triangle(int n)
 {
     return n * (n + 1) / 2;
 }
+
+bool Easy::lastDig(int a, int b, int c)
+{
+    return (a * b % 10) == (c % 10);
+}
