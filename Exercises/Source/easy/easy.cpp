@@ -83,3 +83,24 @@ std::string Easy::maskify(std::string str)
     }
     return masked;
 }
+
+std::vector<int> Easy::noOdds(std::vector<int> array) {
+    std::vector<int> noOdds;
+    for (int i = 0; i < array.size(); i++)
+        if (array[i] % 2 == 0)
+            noOdds.push_back(array[i]);
+    return noOdds;
+}
+
+int Easy::countWords(std::string sentence)
+{
+    int words = 1;
+    for (auto& i : sentence)
+    {
+        if (i == ' ')
+        {
+            words++;
+        }
+    }
+    return words;
+}

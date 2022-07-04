@@ -79,8 +79,22 @@ TEST(EasyTests, MaskifyTheString) {
     ASSERT_EQ(Easy::maskify("123"), "123");
     ASSERT_EQ(Easy::maskify(")E$aCU=e\"_"), "######=e\"_");
 }
-
-
+TEST(EasyTests, EliminateOddNumbersWithinAnArray) {
+    ASSERT_EQ(Easy::noOdds({1, 2, 3, 4, 5, 6, 7, 8}), std::vector<int>({2, 4, 6, 8}));
+    ASSERT_EQ(Easy::noOdds({43, 65, 23, 89, 53, 9, 6}), std::vector<int>({6}));
+    ASSERT_EQ(Easy::noOdds({718, 991, 449, 644, 380, 440}), std::vector<int>({718, 644, 380, 440}));
+    ASSERT_EQ(Easy::noOdds({148, 6, 16, 85}), std::vector<int>({148, 6, 16}));
+    ASSERT_EQ(Easy::noOdds({9, 49, 23}), std::vector<int>({}));
+    ASSERT_EQ(Easy::noOdds({34, 43, 32, 49, 40}), std::vector<int>({34, 32, 40}));
+    ASSERT_EQ(Easy::noOdds({1232, 1990, 1284, 1391, 1958}), std::vector<int>({1232, 1990, 1284, 1958}));
+}
+TEST(EasyTests, GetWordCount) {
+    ASSERT_EQ(Easy::countWords("It's high noon"), 3);
+    ASSERT_EQ(Easy::countWords("Is this easy mode"), 4);
+    ASSERT_EQ(Easy::countWords("What an easy task, right"), 5);
+    ASSERT_EQ(Easy::countWords("How are you today?"), 4);
+    
+}
 
 
 
