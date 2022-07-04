@@ -7,7 +7,7 @@
 	"Create VeryEasy tests": {
 		"prefix": "CreateVeryEasyTest",
 		"body": [
-			" ASSERT_EQ(VeryEasy::${1:function name}(${2: fucntion arguments}), ${3:true values});",
+			"ASSERT_EQ(VeryEasy::${1:function name}(${2: fucntion arguments}), ${3:true values});",
 			"$0"
 		],
 		"description": "Create a VeryEasy test"

@@ -25,10 +25,27 @@ int Easy::numberSyllables(std::string word)
 
 std::string Easy::longBurp(int times)
 {
-    std::string burp = "Burrrp";
+    std::string burp = "Bu";
     for (int i = 0; i < times; i++)
     {
         burp += "r";
     }
-    return burp;
+    return burp + "p";
+}
+
+bool Easy::isSafeBridge(std::string bridge)
+{
+    for (auto& i : bridge)
+    {
+        if (i == ' ')
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+int Easy::triangle(int n)
+{
+    return n * (n + 1) / 2;
 }

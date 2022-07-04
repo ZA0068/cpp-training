@@ -9,7 +9,7 @@
 	"Create Easy tests": {
 		"prefix": "CreateEasyTest",
 		"body": [
-			" ASSERT_EQ(Easy::${1:function name}(${2: fucntion arguments}), ${3:true values});",
+			"ASSERT_EQ(Easy::${1:function name}(${2: fucntion arguments}), ${3:true values});",
 			"$0"
 		],
 		"description": "Create a Easy test"
