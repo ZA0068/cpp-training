@@ -93,9 +93,11 @@ TEST(EasyTests, GetWordCount) {
     ASSERT_EQ(Easy::countWords("Is this easy mode"), 4);
     ASSERT_EQ(Easy::countWords("What an easy task, right"), 5);
     ASSERT_EQ(Easy::countWords("How are you today?"), 4);
+}
+TEST(EasyTests, HowManySolutionsDoesThisQuadraticHave) {
+    ASSERT_EQ(Easy::solutions(1,0,-1), 2);
     
 }
-
 
 
 

@@ -10,6 +10,7 @@ namespace Easy
     int numberSyllables(std::string);
     int triangle(int);
     int countWords(std::string);
+    int solutions(int, int, int);
 
     std::string longBurp(int);
     std::string maskify(std::string);
