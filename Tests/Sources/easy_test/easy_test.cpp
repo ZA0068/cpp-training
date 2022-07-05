@@ -96,11 +96,33 @@ TEST(EasyTests, GetWordCount) {
 }
 TEST(EasyTests, HowManySolutionsDoesThisQuadraticHave) {
     ASSERT_EQ(Easy::solutions(1,0,-1), 2);
+    ASSERT_EQ(Easy::solutions(1,0,0), 1);
+    ASSERT_EQ(Easy::solutions(0,0,1), 0);
+    ASSERT_EQ(Easy::solutions(200,420,800), 0);
+    ASSERT_EQ(Easy::solutions(200,420,-800), 2);
+    ASSERT_EQ(Easy::solutions(1000,1000,0), 2);
+    ASSERT_EQ(Easy::solutions(10000, 400, 4), 1);
     
 }
-
-
-
+TEST(EasyTests, HowManyVowels) {
+    ASSERT_EQ(Easy::countVowels("Celebration"), 5);
+    ASSERT_EQ(Easy::countVowels("Palm"), 1);
+    ASSERT_EQ(Easy::countVowels("Prediction"), 4);
+    ASSERT_EQ(Easy::countVowels("Acid"), 2);
+}
+TEST(EasyTests, ACircleAndTwoSquares) {
+    ASSERT_EQ(Easy::squareAreaDifference(5), 50);
+    ASSERT_EQ(Easy::squareAreaDifference(6), 72);
+    ASSERT_EQ(Easy::squareAreaDifference(7), 98);
+    ASSERT_EQ(Easy::squareAreaDifference(17), 578);
+}
+TEST(EasyTests, RepeatingLetters) {
+    ASSERT_EQ(Easy::doubleChar("String"), "SSttrriinngg");
+    ASSERT_EQ(Easy::doubleChar("Hello World!"), "HHeelllloo  WWoorrlldd!!");
+    ASSERT_EQ(Easy::doubleChar("1234!_ "), "11223344!!__  ");
+    ASSERT_EQ(Easy::doubleChar("##^&%%*&%%$#@@!"), "####^^&&%%%%**&&%%%%$$##@@@@!!");
+    
+}
 
 
 

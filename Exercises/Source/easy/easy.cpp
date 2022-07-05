@@ -103,9 +103,50 @@ int Easy::countWords(std::string sentence)
         }
     }
     return words;
+}  
+
+int Easy::solutions(int a, int b, int c)
+{
+    auto first_solution = (-b + sqrt(b*b-4*a*c))/ (2 * a);
+    auto second_solution = (-b - sqrt(b*b-4*a*c))/ (2 * a);
+    if(isnan(first_solution) || isnan(second_solution))
+        return 0;
+    if(first_solution == second_solution)
+        return 1;
+    return 2;
 }
 
-int Easy::solutions(int, int, int)
+int Easy::countVowels(std::string word)
 {
-    return 2;
+    int wovels = 0;
+    auto isVowel = [&](auto letter) -> bool{
+        std::string vowels = "aeiouAEIOU";
+        for(const auto& vowel : vowels)
+            if(letter == vowel)
+                return true;
+        return false;
+    };
+    for (auto& i : word)
+    {
+        if (isVowel(i))
+        {
+            wovels++;
+        }
+    }
+    return wovels;
+}
+
+int Easy::squareAreaDifference(int radius){
+    return radius*radius*4-radius*radius*2;; 
+}
+
+std::string Easy::doubleChar(std::string str)
+{
+    std::string doubled = "";
+    for (auto& i : str)
+    {
+        doubled += i;
+        doubled += i;
+    }
+    return doubled;
 }

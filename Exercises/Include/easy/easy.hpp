@@ -11,9 +11,12 @@ namespace Easy
     int triangle(int);
     int countWords(std::string);
     int solutions(int, int, int);
+    int countVowels(std::string);
+    int squareAreaDifference(int);
 
     std::string longBurp(int);
     std::string maskify(std::string);
+    std::string doubleChar(std::string);
 
     std::vector<int> pairs(std::pair<int, int>);
     std::vector<int> noOdds(std::vector<int>);
