@@ -150,3 +150,41 @@ std::string Easy::doubleChar(std::string str)
     }
     return doubled;
 }
+
+std::string Easy::alphabetSoup(std::string word)
+{
+    std::sort(word.begin(), word.end());
+    return word;
+}
+
+std::vector<int> Easy::colorInvert(std::vector<int> rgb_color)
+{
+    std::vector<int> inverted;
+    for (auto& i : rgb_color)
+    {
+        inverted.push_back(255 - i);
+    }
+    return inverted;
+}
+
+std::vector<int> Easy::amplify(int number)
+{
+    std::vector<int> amplified;
+    for (int i = 1; i <= number; i++)
+    {
+        if(i%4 == 0)
+            amplified.push_back(i*10);
+        else
+            amplified.push_back(i);
+    }
+    return amplified;
+}
+
+bool Easy::changeEnough(std::vector<int> changes, float dollars)
+{
+    float quarter = static_cast<float>(changes[0]*25)/100;
+    float dime = static_cast<float>(changes[1]*10)/100;
+    float nickel = static_cast<float>(changes[2]*5)/100;
+    float penny = static_cast<float>(changes[3])/100;
+    return quarter + dime + nickel + penny >= dollars;
+}

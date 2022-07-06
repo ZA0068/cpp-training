@@ -123,7 +123,36 @@ TEST(EasyTests, RepeatingLetters) {
     ASSERT_EQ(Easy::doubleChar("##^&%%*&%%$#@@!"), "####^^&&%%%%**&&%%%%$$##@@@@!!");
     
 }
-
-
-
-
+TEST(EasyTests, AlphabetSoup) {
+    ASSERT_EQ(Easy::alphabetSoup("hello"), "ehllo");
+    ASSERT_EQ(Easy::alphabetSoup("edabit"), "abdeit");
+    ASSERT_EQ(Easy::alphabetSoup("hacker"), "acehkr");
+    ASSERT_EQ(Easy::alphabetSoup("geek"), "eegk");
+    ASSERT_EQ(Easy::alphabetSoup("javascript"), "aacijprstv");
+    ASSERT_EQ(Easy::alphabetSoup("apostrophe"), "aehoopprst");
+    
+}
+TEST(EasyTests, InvertColors) {
+    ASSERT_EQ(Easy::colorInvert({165, 170, 119}), std::vector<int>({90, 85, 136}));
+    ASSERT_EQ(Easy::colorInvert({165, 170, 238}), std::vector<int>({90, 85, 17}));
+    ASSERT_EQ(Easy::colorInvert({165, 170, 0}), std::vector<int>({90, 85, 255}));
+    ASSERT_EQ(Easy::colorInvert({0, 0, 0}), std::vector<int>({255, 255, 255}));
+    ASSERT_EQ(Easy::colorInvert({255, 255, 255}), std::vector<int>({0, 0, 0}));
+    ASSERT_EQ(Easy::colorInvert({240, 190, 51}), std::vector<int>({15, 65, 204}));
+    
+}
+TEST(EasyTests, AmplifyTheMultipleOfFour) {
+    ASSERT_EQ(Easy::amplify(1), std::vector<int>({1}));
+    ASSERT_EQ(Easy::amplify(4), std::vector<int>({1, 2, 3, 40}));
+    ASSERT_EQ(Easy::amplify(8), std::vector<int>({1, 2, 3, 40, 5, 6, 7, 80}));
+    ASSERT_EQ(Easy::amplify(25), std::vector<int>({1, 2, 3, 40, 5, 6, 7, 80, 9, 10, 11, 120, 13, 14, 15, 160, 17, 18, 19, 200, 21, 22, 23, 240, 25}));
+}
+TEST(EasyTests, ConvenienceStore) {
+    ASSERT_EQ(Easy::changeEnough({0, 0, 20, 5}, 0.75), true);
+    ASSERT_EQ(Easy::changeEnough({30, 40, 20, 5}, 12.55), true);
+    ASSERT_EQ(Easy::changeEnough({1, 0, 2555, 219}, 127.75), true);
+    ASSERT_EQ(Easy::changeEnough({1, 335, 0, 219}, 35.21), true);
+    ASSERT_EQ(Easy::changeEnough({2, 100, 0, 0}, 14.11), false);
+    ASSERT_EQ(Easy::changeEnough({10, 0, 0, 50}, 13.85), false);
+    ASSERT_EQ(Easy::changeEnough({1, 0, 5, 219}, 19.99), false);
+}
