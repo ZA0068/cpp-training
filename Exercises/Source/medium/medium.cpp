@@ -82,3 +82,42 @@ int Medium::letterCounter(vector<vector<char>> letter_matrix, char letter)
     }
     return counter;
 }
+
+string Medium::rps(string player_1, string player_2)
+{
+    if(player_1 == "rock" && player_2 == "scissors")
+        return "Player 1 wins";
+    else if(player_1 == "rock" && player_2 == "paper")
+        return "Player 2 wins";
+    else if(player_1 == "paper" && player_2 == "rock")
+        return "Player 1 wins";
+    else if(player_1 == "paper" && player_2 == "scissors")
+        return "Player 2 wins";
+    else if(player_1 == "scissors" && player_2 == "paper")
+        return "Player 1 wins";
+    else if(player_1 == "scissors" && player_2 == "rock")
+        return "Player 2 wins";
+    else
+        return "TIE";   
+}
+
+double Medium::dis(int price, int discount)
+{
+    double reduction = static_cast<double>(price * discount) / 100;
+    double discounted_price = price - reduction;
+    return round(discounted_price*100)/100;
+}
+
+vector<int> Medium::sumOddAndEven(vector<int> array)
+{
+    int odd_sum = 0;
+    int even_sum = 0;
+    for(auto number : array)
+    {
+        if(number % 2 == 0)
+            even_sum += number;
+        else
+            odd_sum += number;
+    }
+    return {even_sum, odd_sum};
+}

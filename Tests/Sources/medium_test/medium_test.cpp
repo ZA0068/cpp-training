@@ -89,9 +89,27 @@ TEST(MediumTests, CountLettersInAWordSearch) {
 		{'V', 'X', 'H', 'A', 'S', 'S'}
 		}, 'S'), 3);
 }
-
-
-
+TEST(MediumTests, SimulateTheGameRockPaperScissors) {
+    ASSERT_EQ(Medium::rps("rock", "paper"), "Player 2 wins");
+    ASSERT_EQ(Medium::rps("rock", "scissors"), "Player 1 wins");
+    ASSERT_EQ(Medium::rps("scissors", "paper"), "Player 1 wins");
+    ASSERT_EQ(Medium::rps("scissors", "rock"), "Player 2 wins");
+    ASSERT_EQ(Medium::rps("scissors", "scissors"), "TIE");
+    
+}
+TEST(MediumTests, FindTheDiscount) {
+    ASSERT_EQ(Medium::dis(100, 75), 25);
+    ASSERT_EQ(Medium::dis(211, 50), 105.5);
+    ASSERT_EQ(Medium::dis(593, 61), 231.27);
+    ASSERT_EQ(Medium::dis(1693, 80), 338.6);
+    ASSERT_EQ(Medium::dis(700, 10), 630);
+}
+TEST(MediumTests, SumOfOddAndEvenNumbers) {
+    ASSERT_EQ(Medium::sumOddAndEven({1, 2, 3, 4, 5, 6}), std::vector<int>({12, 9}));
+    ASSERT_EQ(Medium::sumOddAndEven({-1, -2, -3, -4, -5, -6}), std::vector<int>({-12, -9}));
+    ASSERT_EQ(Medium::sumOddAndEven({0, 0}), std::vector<int>({0, 0}));
+    ASSERT_EQ(Medium::sumOddAndEven({}), std::vector<int>({0, 0}));
+}
 
 
 
