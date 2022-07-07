@@ -1,2 +1,3 @@
 add_subdirectory(very_easy_test)
 add_subdirectory(easy_test)
+add_subdirectory(medium_test)
