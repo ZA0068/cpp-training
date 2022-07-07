@@ -121,3 +121,41 @@ vector<int> Medium::sumOddAndEven(vector<int> array)
     }
     return {even_sum, odd_sum};
 }
+
+int Medium::spinAround(vector<string> rotate90degrees)
+{
+    int rotations = 0;
+    for(auto direction : rotate90degrees)
+        {
+        if(direction == "right")
+            rotations += 90;
+        else
+            rotations -= 90;
+        }
+        rotations /= 360;
+        return abs(rotations);
+}
+
+vector<string> Medium::pingPong(vector<string> moves, bool has_won)
+{
+    vector<string> final_moves;
+    for(int i = 0; i < moves.size(); i++)
+    {
+        final_moves.push_back(moves[i]);
+        if(i < moves.size()-1)
+            final_moves.push_back("Pong!");
+    }
+    if(has_won)
+    {
+        final_moves.push_back("Pong!");
+    }
+    return final_moves;
+}
+
+std::pair<int, int> Medium::XOR(int a, int b)
+{
+    a ^= b;
+    b ^= a;
+    a ^= b;
+    return {a, b};
+}

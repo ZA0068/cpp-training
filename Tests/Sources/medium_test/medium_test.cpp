@@ -110,7 +110,36 @@ TEST(MediumTests, SumOfOddAndEvenNumbers) {
     ASSERT_EQ(Medium::sumOddAndEven({0, 0}), std::vector<int>({0, 0}));
     ASSERT_EQ(Medium::sumOddAndEven({}), std::vector<int>({0, 0}));
 }
-
+TEST(MediumTests, SpinAround_TouchTheGround) {
+    ASSERT_EQ(Medium::spinAround({"left", "right", "left", "right"}), 0);
+    ASSERT_EQ(Medium::spinAround({"right", "right", "right", "right", "right", "right", "right", "right"}), 2);
+    ASSERT_EQ(Medium::spinAround({"left", "left", "left", "left"}), 1);
+    ASSERT_EQ(Medium::spinAround({}), 0);
+    ASSERT_EQ(Medium::spinAround({"left"}), 0);
+    ASSERT_EQ(Medium::spinAround({"right"}), 0);
+    ASSERT_EQ(Medium::spinAround({"right", "right", "right", "left", "right", "right"}), 1);
+    ASSERT_EQ(Medium::spinAround({"left", "left", "right", "left", "left", "left", "left", "left", "left", "right", "left", "left", "right", "right", "right", "right", "left", "left", "right", "right"}), 1);
+    ASSERT_EQ(Medium::spinAround({"right", "left", "left", "right", "left", "left", "right", "left", "right", "right", "left", "left", "right", "right", "right", "left", "left", "right"}), 0);
+    ASSERT_EQ(Medium::spinAround({"right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right", "right"}), 10);
+    ASSERT_EQ(Medium::spinAround({"left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left", "left"}), 10);
+};
+TEST(MediumTests, PingPong) {
+    ASSERT_EQ(Medium::pingPong({"Ping!"}, true), std::vector<string>({"Ping!", "Pong!"}));
+    ASSERT_EQ(Medium::pingPong({"Ping!", "Ping!"}, false), std::vector<string>({"Ping!", "Pong!", "Ping!"}));
+    ASSERT_EQ(Medium::pingPong({"Ping!", "Ping!", "Ping!"}, true), std::vector<string>({"Ping!", "Pong!", "Ping!", "Pong!", "Ping!", "Pong!"}));
+}
+TEST(MediumTests, XORSwapAlgoritm) {
+    ASSERT_EQ(Medium::XOR(10, 20), std::make_pair(20, 10));
+    ASSERT_EQ(Medium::XOR(1, 2), std::make_pair(2, 1));
+    ASSERT_EQ(Medium::XOR(555, 666), std::make_pair(666, 555));
+	ASSERT_EQ(Medium::XOR(3434, 4343), std::make_pair(4343, 3434));
+	ASSERT_EQ(Medium::XOR(5, 6), std::make_pair(6, 5));
+	ASSERT_EQ(Medium::XOR(666, 999), std::make_pair(999, 666));
+}
+TEST(MediumTests, PerfectSquarePatch) {
+    ASSERT_EQ(Medium::squarePatch(3), std::vector<std::vector<int>>({{3, 3, 3}, {3, 3, 3}, {3, 3, 3}}));
+    
+}
 
 
 
