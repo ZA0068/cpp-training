@@ -23,8 +23,26 @@ TEST(MediumTests, ToyCarWorkshop) {
     ASSERT_EQ(Medium::cars(959, 331, 537), 239);
 
 }
-
-
+TEST(MediumTests, DoubleCharacterSwap) {
+    ASSERT_EQ(Medium::doubleSwap("aabbccc", 'a', 'b'), "bbaaccc");
+	ASSERT_EQ(Medium::doubleSwap("random w#rds writt&n h&r&", '#', '&'), "random w&rds writt#n h#r#");
+	ASSERT_EQ(Medium::doubleSwap("128 895 556 788 999", '8', '9'), "129 985 556 799 888");
+	ASSERT_EQ(Medium::doubleSwap("mamma mia", 'm', 'a'), "amaam aim");
+	ASSERT_EQ(Medium::doubleSwap("**##**", '*', '#'), "##**##");
+	ASSERT_EQ(Medium::doubleSwap("123456789", '4', '5'), "123546789");
+	ASSERT_EQ(Medium::doubleSwap("445566&&", '4', '&'), "&&556644");
+	ASSERT_EQ(Medium::doubleSwap("!?@,.", ',', '.'), "!?@.,");
+	ASSERT_EQ(Medium::doubleSwap("Q_Q T_T =.= >.<", 'Q', 'T'), "T_T Q_Q =.= >.<");
+	ASSERT_EQ(Medium::doubleSwap("(Q_Q) (T_T) (=.=) (>.<)", ')', '('), ")Q_Q( )T_T( )=.=( )>.<(");
+	ASSERT_EQ(Medium::doubleSwap("<>", '>', '<'), "><");
+	ASSERT_EQ(Medium::doubleSwap("001101", '1', '0'), "110010");
+	ASSERT_EQ(Medium::doubleSwap("!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~", 'a', 'b'),"!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`bacdefghijklmnopqrstuvwxyz{|}~");
+    
+}
+TEST(MediumTests, CensoredStrings) {
+    ASSERT_EQ(Medium::unsensor("Wh*r* d*d my v*w*ls g*?"), "eeioeo");
+    
+}
 
 
 

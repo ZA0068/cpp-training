@@ -37,3 +37,15 @@ int Medium::cars(int wheels, int car_body, int people)
             people -= 2;
         }
 }
+
+string Medium::doubleSwap(string str, char a, char b)
+{
+    for(int i = 0; i < str.size(); i++)
+        {
+            if(str[i] == a)
+                str[i] = b;
+            else if(str[i] == b)
+                str[i] = a;
+        }
+    return str;
+}

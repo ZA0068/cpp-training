@@ -11,4 +11,7 @@ namespace Medium {
     int cars(int, int, int);
 
     vector<int> evenOddTransform(vector<int>, int);
+
+    string doubleSwap(string, char, char);
+    string uncensor(string, string);
 }
