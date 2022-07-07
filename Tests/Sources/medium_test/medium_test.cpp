@@ -40,10 +40,55 @@ TEST(MediumTests, DoubleCharacterSwap) {
     
 }
 TEST(MediumTests, CensoredStrings) {
-    ASSERT_EQ(Medium::unsensor("Wh*r* d*d my v*w*ls g*?"), "eeioeo");
-    
+    ASSERT_EQ(Medium::uncensor("Wh*r* d*d my v*w*ls g*?", "eeioeo"), "Where did my vowels go?");
+    ASSERT_EQ(Medium::uncensor("abcd", ""), "abcd");
+    ASSERT_EQ(Medium::uncensor("Ch**s*, Gr*mm*t -- ch**s*", "eeeoieee"), "Cheese, Grommit -- cheese");
+    ASSERT_EQ(Medium::uncensor("*l*ph*nt", "Eea"), "Elephant");
 }
-
+TEST(MediumTests, CountLettersInAWordSearch) {
+    ASSERT_EQ(Medium::letterCounter({
+		{'D', 'E', 'Y', 'H', 'A', 'D'},
+		{'C', 'B', 'Z', 'Y', 'J', 'K'},
+		{'D', 'B', 'C', 'A', 'M', 'N'},
+		{'F', 'G', 'G', 'R', 'S', 'R'},
+		{'V', 'X', 'H', 'A', 'S', 'S'}
+		}, 'D'), 3);
+    ASSERT_EQ(Medium::letterCounter({
+		{'D', 'E', 'Y', 'H', 'A', 'D'},
+		{'C', 'B', 'Z', 'Y', 'J', 'K'},
+		{'D', 'B', 'C', 'A', 'M', 'N'},
+		{'F', 'G', 'G', 'R', 'S', 'R'},
+		{'V', 'X', 'H', 'A', 'S', 'S'}
+		}, 'H'), 2);
+    ASSERT_EQ(Medium::letterCounter({
+		{'D', 'E', 'Y', 'H', 'A', 'D'},
+		{'C', 'B', 'Z', 'Y', 'J', 'K'},
+		{'D', 'B', 'C', 'A', 'M', 'N'},
+		{'F', 'G', 'G', 'R', 'S', 'R'},
+		{'V', 'X', 'H', 'A', 'S', 'S'}
+		}, 'Z'), 1);
+    ASSERT_EQ(Medium::letterCounter({
+		{'D', 'E', 'Y', 'H', 'A', 'D'},
+		{'C', 'B', 'Z', 'Y', 'J', 'K'},
+		{'D', 'B', 'C', 'A', 'M', 'N'},
+		{'F', 'G', 'G', 'R', 'S', 'R'},
+		{'V', 'X', 'H', 'A', 'S', 'S'}
+		}, 'R'), 2);
+    ASSERT_EQ(Medium::letterCounter({
+		{'D', 'E', 'Y', 'H', 'A', 'D'},
+		{'C', 'B', 'Z', 'Y', 'J', 'K'},
+		{'D', 'B', 'C', 'A', 'M', 'N'},
+		{'F', 'G', 'G', 'R', 'S', 'R'},
+		{'V', 'X', 'H', 'A', 'S', 'S'}
+		}, 'X'), 1);
+    ASSERT_EQ(Medium::letterCounter({
+		{'D', 'E', 'Y', 'H', 'A', 'D'},
+		{'C', 'B', 'Z', 'Y', 'J', 'K'},
+		{'D', 'B', 'C', 'A', 'M', 'N'},
+		{'F', 'G', 'G', 'R', 'S', 'R'},
+		{'V', 'X', 'H', 'A', 'S', 'S'}
+		}, 'S'), 3);
+}
 
 
 

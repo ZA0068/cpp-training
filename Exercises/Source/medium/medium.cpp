@@ -49,3 +49,36 @@ string Medium::doubleSwap(string str, char a, char b)
         }
     return str;
 }
+
+string Medium::uncensor(string censored_sentence, string vowels)
+{
+    string uncensored_sentence;
+    int vowel_index = 0;
+    for(auto censored_letter : censored_sentence)
+    {
+        if(censored_letter =='*')
+        {
+            uncensored_sentence += vowels[vowel_index];
+            vowel_index++;
+        }
+        else
+        {
+            uncensored_sentence += censored_letter;
+        }
+    }
+    return uncensored_sentence;
+}
+
+int Medium::letterCounter(vector<vector<char>> letter_matrix, char letter)
+{
+    int counter = 0;
+    for(auto row : letter_matrix)
+    {
+        for(auto column : row)
+        {
+            if(column == letter)
+                counter++;
+        }
+    }
+    return counter;
+}
