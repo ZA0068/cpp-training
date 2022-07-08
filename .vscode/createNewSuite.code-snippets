@@ -6,13 +6,13 @@
 	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
 	// Placeholders with the same ids are connected.
 	// Example:
-	"create VeryEasy testsuite": {
-		"prefix": "CreateVeryEasyTestSuite",
+	"Create New testsuite": {
+		"prefix": "createNewTestSuite",
 		"body": [
-			"TEST(VeryEasyTests, ${1:test_name}) {",
+			"TEST(${1:Test difficulty}, ${1:test name}) {",
 			"$0",
 			"}"
 		],
-		"description": "This creates a testsuite for very easy tests."
+		"description": "This creates Easy testsuite"
 	}
 }
