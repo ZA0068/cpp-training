@@ -9,7 +9,7 @@
 	"Create New testsuite": {
 		"prefix": "createNewTestSuite",
 		"body": [
-			"TEST(${1:Test difficulty}, ${1:test name}) {",
+			"TEST(${1:Test difficulty}, ${2:test name}) {",
 			"$0",
 			"}"
 		],

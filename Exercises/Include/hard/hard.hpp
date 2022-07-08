@@ -6,5 +6,5 @@ using std::cout;
 
 namespace Hard
 {
-
+    char firstRepeat(string);
 }
