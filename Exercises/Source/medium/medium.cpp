@@ -159,3 +159,106 @@ std::pair<int, int> Medium::XOR(int a, int b)
     a ^= b;
     return {a, b};
 }
+
+vector<vector<int>> Medium::squarePatch(int n)
+{
+    vector<vector<int>> square_patch;
+    for(int i = 0; i < n; i++)
+    {
+        vector<int> row;
+        for(int j = 0; j < n; j++)
+        {
+            row.push_back(n);
+        }
+        square_patch.push_back(row);
+    }
+    return square_patch;
+}
+
+string Medium::reverse(string str)
+{
+    if(str == "\0")
+        return str;
+    else
+        return reverse(str.substr(1)) + str[0];
+}
+
+bool Medium::rectangleInCircle(int rectangle_width, int rectangle_height, int circle_radius)
+{
+    double rectangle_radius = sqrt((rectangle_width * rectangle_width + rectangle_height * rectangle_height)) / 2;
+    return rectangle_radius <= circle_radius;
+}
+
+bool Medium::simonSays(vector<int> array1, vector<int> array2)
+{
+    if(array1.size() != array2.size())
+        return false;
+    for(int i = 0; i < array1.size()-1; i++)
+    {
+        if(array1[i] != array2[i+1])
+            return false;
+    }
+    return true;
+}
+
+string Medium::calculateArrowhead(vector<string> arrowheads_array)
+{
+    int direction_count = 0;
+    string arrow_direction;
+    for(auto& arrowhead : arrowheads_array)
+        {
+            for(auto& direction : arrowhead)
+            {
+                if(direction == '<')
+                    direction_count++;
+                else
+                    direction_count--;
+            }
+        }
+    while(direction_count != 0)
+    {
+        if(direction_count > 0)
+        {
+            arrow_direction += '<';
+            direction_count--;
+        }
+        else
+        {
+            arrow_direction += '>';
+            direction_count++;
+        }
+    }
+    return arrow_direction;
+}
+
+vector<int> Medium::miniPeaks(vector<int> array)
+{
+    vector<int> peaks;
+    for(int i = 1; i < array.size()-1; i++)
+    {
+        if(array[i] > array[i-1] && array[i] > array[i+1])
+            peaks.push_back(array[i]);
+    }
+    return peaks;
+}
+
+string Medium::detectWord(string crowd)
+{
+    string word;
+    for(auto& letter : crowd)
+    {
+        if(letter >= 97 && letter <= 122)
+            word += letter;
+    }
+    return word;
+}
+
+int Medium::doubledPay(int penny)
+{
+    int returns = 0;
+    for(int i = 0; i < penny; i++)
+    {
+        returns = returns + pow(2, i);
+    }
+    return returns;
+}
