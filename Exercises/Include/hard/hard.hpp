@@ -10,6 +10,8 @@ namespace Hard
     
     int findOdd(vector<int>);
     int letterDistance(string, string);
+    int primeNumbers(int);
 
     string tweakLetters(string, vector<int>);
+    vector<string> makeBox(int);
 }

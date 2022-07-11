@@ -36,9 +36,32 @@ TEST(HardTests, LetterDistance) {
 	ASSERT_EQ(Hard::letterDistance("abcde", "A"), 36);
     
 }
-
-
-
+TEST(HardTests, MakingABox) {
+    ASSERT_EQ(Hard::makeBox(1), std::vector<std::string>({"#"}));
+    ASSERT_EQ(Hard::makeBox(2), std::vector<std::string>({"##", "##"}));
+    ASSERT_EQ(Hard::makeBox(3), std::vector<std::string>({"###", "# #", "###"}));
+    ASSERT_EQ(Hard::makeBox(4), std::vector<std::string>({"####", "#  #", "#  #", "####"}));
+    ASSERT_EQ(Hard::makeBox(5), std::vector<std::string>({"#####", "#   #", "#   #", "#   #", "#####"}));
+    ASSERT_EQ(Hard::makeBox(6), std::vector<std::string>({"######", "#    #", "#    #", "#    #", "#    #", "######"}));
+    
+}
+TEST(HardTests, HowMAnyPrimeNumbersAreThere) {
+    ASSERT_EQ(Hard::primeNumbers(20), 8);
+	ASSERT_EQ(Hard::primeNumbers(30), 10);
+	ASSERT_EQ(Hard::primeNumbers(100), 25);
+	ASSERT_EQ(Hard::primeNumbers(200), 46);
+	ASSERT_EQ(Hard::primeNumbers(1000), 168);
+	ASSERT_EQ(Hard::primeNumbers(-5), 0);
+	ASSERT_EQ(Hard::primeNumbers(66), 18);
+	ASSERT_EQ(Hard::primeNumbers(133), 32);
+	ASSERT_EQ(Hard::primeNumbers(99), 25);
+}
+TEST(HardTests, ReverseCodingChallenge1) {
+    ASSERT_EQ(Hard::mysteryFunc("A4B5C2"), "AAAABBBBBCC");
+	ASSERT_EQ(Hard::mysteryFunc("C2F1E5"), "CCFEEEEE");
+	ASSERT_EQ(Hard::mysteryFunc("T4S2V2"), "TTTTSSVV");
+	ASSERT_EQ(Hard::mysteryFunc("A1B2C3D4"), "ABBCCCDDDD");
+}
 
 
 

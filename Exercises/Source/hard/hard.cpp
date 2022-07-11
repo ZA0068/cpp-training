@@ -71,3 +71,48 @@ int Hard::letterDistance(string word1, string word2)
     distance += abs(static_cast<int>(word1.size() - word2.size()));
     return distance;
 }
+
+vector<string> Hard::makeBox(int n)
+{
+    vector<string> box;
+    string line;
+    for(int i = 0; i < n; i++)
+    {
+        line = "";
+        for(int j = 0; j < n; j++)
+        {
+            if(i == 0 || i == n - 1 || j == 0 || j == n - 1)
+            {
+                line += "#";
+            }
+            else
+            {
+                line += " ";
+            }
+        }
+        box.push_back(line);
+    }
+    return box;
+}
+
+int Hard::primeNumbers(int n)
+{
+    int cnt = 0;
+    for(int i = 2; i < n; i++)
+    {
+        bool isPrime = true;
+        for(int j = 2; j < i; j++)
+        {
+            if(i % j == 0)
+            {
+                isPrime = false;
+                break;
+            }
+        }
+        if(isPrime)
+        {
+            cnt++;
+        }
+    }
+    return cnt;
+}
