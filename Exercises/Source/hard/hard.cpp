@@ -215,3 +215,57 @@ int Hard::countOnes(vector<int> array)
    }
     return cnt2;
 }
+
+int Hard::sharedLetters(string word1, string word2)
+{
+    int cnt = 0;
+    for(int i = 0; i < word1.size(); i++)
+    {
+        for(int j = 0; j < word2.size(); j++)
+        {
+            if(word1[i] == word2[j])
+            {
+                cnt++;
+                std::size_t pos = word2.find(word1[i]);
+                word2.erase(pos, 1);
+            }
+        }
+    }
+    return cnt;
+}
+
+string Hard::toSnakeCase(string word)
+{
+    string newWord = "";
+    for(int i = 0; i < word.size(); i++)
+    {
+        if(word[i] >= 'A' && word[i] <= 'Z')
+        {
+            newWord += "_";
+            newWord += static_cast<char>(word[i] + 32);
+        }
+        else
+        {
+            newWord += word[i];
+        }
+    }
+    return newWord;
+}
+
+string Hard::toCamelCase(string word)
+{
+    string newWord = "";
+    for(int i = 0; i < word.size(); i++)
+    {
+        if(word[i] == '_')
+        {
+            newWord += static_cast<char>(word[i + 1] - 32);
+            i++;
+        }
+        else
+        {
+            newWord += word[i];
+        }
+    }
+    return newWord;
+}

@@ -15,9 +15,11 @@ namespace Hard
     int countOnes(vector<int>);
     int letterDistance(string, string);
     int primeNumbers(int);
-
+    int sharedLetters(string, string);
 
     string mysteryFunc(string);
+    string toSnakeCase(string);
+    string toCamelCase(string);
     string tweakLetters(string, vector<int>);
     vector<string> makeBox(int);
 }

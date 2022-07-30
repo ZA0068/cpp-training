@@ -107,8 +107,31 @@ TEST(HardTests, NumberTwoOrMoreConsecutiveOnes) {
 	ASSERT_EQ(Hard::countOnes({1, 1, 1, 1, 0, 0, 0, 0}), 1);
 	ASSERT_EQ(Hard::countOnes({1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1}), 3);
 }
+TEST(HardTests, LettersSharedBetweenTwoWords) {
+	ASSERT_EQ(Hard::sharedLetters("apple", "meaty"), 2);
+	ASSERT_EQ(Hard::sharedLetters("fan", "forsook"), 1);
+	ASSERT_EQ(Hard::sharedLetters("spout", "shout"), 4);
+	ASSERT_EQ(Hard::sharedLetters("took", "taken"), 2);
+	ASSERT_EQ(Hard::sharedLetters("mentor", "terminal"), 5);
+	ASSERT_EQ(Hard::sharedLetters("class", "last"), 3);
+}
+TEST(HardTests, CamelCase_snake_case) {
+		// camelCase to snake_case tests
+  	ASSERT_EQ(Hard::toSnakeCase("edabit"), "edabit");
+	ASSERT_EQ(Hard::toSnakeCase("helloEdabit"), "hello_edabit");
+	ASSERT_EQ(Hard::toSnakeCase("isModalOpen"), "is_modal_open");
+	ASSERT_EQ(Hard::toSnakeCase("getBackgroundColor"), "get_background_color");
+	ASSERT_EQ(Hard::toSnakeCase("isLoading"), "is_loading");
+	ASSERT_EQ(Hard::toSnakeCase("x"), "x");
 
-
+	// snake_case to camelCase tests
+	ASSERT_EQ(Hard::toCamelCase("edabit"), "edabit");
+	ASSERT_EQ(Hard::toCamelCase("hello_edabit"), "helloEdabit");
+	ASSERT_EQ(Hard::toCamelCase("is_modal_open"), "isModalOpen");
+	ASSERT_EQ(Hard::toCamelCase("get_background_color"), "getBackgroundColor");
+	ASSERT_EQ(Hard::toCamelCase("is_loading"), "isLoading");
+	ASSERT_EQ(Hard::toCamelCase("x"), "x");
+}
 
 
 
