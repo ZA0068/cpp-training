@@ -62,9 +62,51 @@ TEST(HardTests, ReverseCodingChallenge1) {
 	ASSERT_EQ(Hard::mysteryFunc("T4S2V2"), "TTTTSSVV");
 	ASSERT_EQ(Hard::mysteryFunc("A1B2C3D4"), "ABBCCCDDDD");
 }
+TEST(HardTests, ConsecutiveNumbers) {
+	ASSERT_EQ(Hard::cons({5, 1, 4, 3, 2}), true);
+	ASSERT_EQ(Hard::cons({55, 59, 58, 56, 57}), true);
+	ASSERT_EQ(Hard::cons({-3, -2, -1, 1, 0}), true);
+	ASSERT_EQ(Hard::cons({5, 1, 4, 3, 2, 8}), false);
+	ASSERT_EQ(Hard::cons({5, 6, 7, 8, 9, 9}), false);
+	ASSERT_EQ(Hard::cons({5, 3}), false);
+}
+TEST(HardTests, ValidHexCode) {
+	ASSERT_EQ(Hard::isValidHexCode("#CD5C5C"), true);
+	ASSERT_EQ(Hard::isValidHexCode("#CD5C5C"), true);
+	ASSERT_EQ(Hard::isValidHexCode("#EAECEE"), true);
+	ASSERT_EQ(Hard::isValidHexCode("#eaecee"), true);
+	ASSERT_EQ(Hard::isValidHexCode("#123456"), true);
+	ASSERT_EQ(Hard::isValidHexCode("#987654"), true);
+	ASSERT_EQ(Hard::isValidHexCode("#CCCCCC"), true);
 
+	ASSERT_EQ(Hard::isValidHexCode("#CD5C58C"), false);
+	ASSERT_EQ(Hard::isValidHexCode("#123CCCD"), false);
+	ASSERT_EQ(Hard::isValidHexCode("#9876543"), false);
+	
+	ASSERT_EQ(Hard::isValidHexCode("#ZCCZCC"), false);
+	ASSERT_EQ(Hard::isValidHexCode("#Z88Z99"), false); 
+	ASSERT_EQ(Hard::isValidHexCode("#CD5C5Z"), false);
 
+	ASSERT_EQ(Hard::isValidHexCode("#Z88!99"), false);
+	ASSERT_EQ(Hard::isValidHexCode("#CD5C&C"), false);
+	ASSERT_EQ(Hard::isValidHexCode("CD5CD#C"), false);
 
+	ASSERT_EQ(Hard::isValidHexCode("CD5C5C"), false);
+}
+TEST(HardTests, NumberTwoOrMoreConsecutiveOnes) {
+	ASSERT_EQ(Hard::countOnes({1,1,1,1,1}), 1);
+	ASSERT_EQ(Hard::countOnes({1, 1, 1, 1, 0}), 1);
+	ASSERT_EQ(Hard::countOnes({0, 0, 0, 0, 0}), 0);
+	ASSERT_EQ(Hard::countOnes({1, 0, 0, 0, 0}), 0);
+	ASSERT_EQ(Hard::countOnes({1, 0, 1, 0, 1}), 0);
+	ASSERT_EQ(Hard::countOnes({1, 0, 0, 0, 1, 0, 0, 1, 1, 0}), 1);
+	ASSERT_EQ(Hard::countOnes({1, 1, 0, 1, 1, 0, 0, 1, 1}), 3);
+	ASSERT_EQ(Hard::countOnes({1, 0, 0, 1, 1, 0, 0, 1, 1}), 2);
+	ASSERT_EQ(Hard::countOnes({1, 0, 1, 1, 1, 0, 1, 1, 1}), 2);
+	ASSERT_EQ(Hard::countOnes({1, 0, 1, 0, 1, 0, 1, 0}), 0);
+	ASSERT_EQ(Hard::countOnes({1, 1, 1, 1, 0, 0, 0, 0}), 1);
+	ASSERT_EQ(Hard::countOnes({1, 1, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1}), 3);
+}
 
 
 
