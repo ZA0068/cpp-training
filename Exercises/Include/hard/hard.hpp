@@ -9,6 +9,8 @@ namespace Hard
     bool cons(vector<int>);
     bool isValidHexCode(string);
     bool canPlay(vector<string>, string);
+    bool isRepeatingCycle(std::vector<int>, int);
+    bool overTwentyOne(vector<char>);
 
     char firstRepeat(string);
     

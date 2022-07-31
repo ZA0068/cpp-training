@@ -154,8 +154,23 @@ TEST(HardTests, FindTheFirstNonRepeatedCharacter) {
 	ASSERT_EQ(Hard::firstNonRepeatedCharacter("hheelloo"), "Invalid");
 	ASSERT_EQ(Hard::firstNonRepeatedCharacter(""), "Invalid");
 }
-
-
+TEST(HardTests, RepeatingCycle) {
+	ASSERT_EQ(Hard::isRepeatingCycle({1, 2, 3, 1, 2, 3, 1}, 3), true);
+	ASSERT_EQ(Hard::isRepeatingCycle({1, 2, 3, 4, 2, 3, 1}, 4), false);
+	ASSERT_EQ(Hard::isRepeatingCycle({1, 2, 1, 2, 2}, 2), false);
+	ASSERT_EQ(Hard::isRepeatingCycle({1, 2, 1, 2, 1, 2, 1}, 3), false);
+	ASSERT_EQ(Hard::isRepeatingCycle({1, 2, 1, 2, 1, 2, 1}, 2), true);
+	ASSERT_EQ(Hard::isRepeatingCycle({1, 2, 1, 2, 1, 2, 1}, 4), true);
+	ASSERT_EQ(Hard::isRepeatingCycle({1, 1, 1, 1}, 3), true);
+	ASSERT_EQ(Hard::isRepeatingCycle({1, 2, 1, 9}, 4), true);
+	ASSERT_EQ(Hard::isRepeatingCycle({1, 1, 3, 1, 1}, 7), true);
+}
+TEST(HardTests, Blackjack) {
+	ASSERT_EQ(Hard::overTwentyOne({"A","2","3"}), false);
+	ASSERT_EQ(Hard::overTwentyOne({'A', 'J', 'K'}), false);
+	ASSERT_EQ(Hard::overTwentyOne({'A', 'J', 'K', 'Q'}), true);
+	ASSERT_EQ(Hard::overTwentyOne({'5', '3', '6', '6', '7', '9'}), true);
+}
 
 
 

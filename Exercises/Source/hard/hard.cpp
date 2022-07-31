@@ -287,24 +287,19 @@ bool Hard::canPlay(vector<string> hand, string face)
 
 string Hard::firstNonRepeatedCharacter(string sentence)
 {
-    if(sentence.size() == 1)
-    {
-        return sentence;
-    }
     string newSentence;
     bool foundRepeated;
-    for (int i = 0; i < sentence.length() - 1; i++)
+    for (int i = 0; i < sentence.length();)
     {
         foundRepeated = false;
-        int j = i;
-        while(!foundRepeated && j < sentence.length())
+        for (int j = i; j < sentence.length() && !foundRepeated; j++)
         {
             if (sentence[i] == sentence[j] && i != j)
             {
                 foundRepeated = true;
-                sentence.erase(remove(sentence.begin(), sentence.end(), sentence[i]), sentence.end());
+                sentence.erase(i, 1);
+                sentence.erase(j-1, 1);
             }
-            j++;
         }
         if (!foundRepeated)
         {
@@ -313,4 +308,42 @@ string Hard::firstNonRepeatedCharacter(string sentence)
         }
     }
     return "Invalid";
+}
+
+bool Hard::isRepeatingCycle(vector<int> array, int length)
+{
+    int cnt = 0;
+    for (int i = 0; i < array.size() && i+length < array.size(); i++)
+    {
+        if (array[i] != array[i + length])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool Hard::overTwentyOne(vector<char> cards)
+{
+    int cnt = 0;
+    for (auto card : cards)
+    {
+        if (card == 'A')
+        {
+            cnt += 1;
+        }
+        else if (card == 'J' || card == 'Q' || card == 'K')
+        {
+            cnt += 10;
+        }
+        else
+        {
+            cnt += static_cast<int>(card - '0');
+        }
+    }
+    if (cnt > 21)
+    {
+        return false;
+    }
+    return true;
 }
