@@ -2,11 +2,11 @@
 
 char Hard::firstRepeat(string word)
 {
-    for(int i = 0; i < word.size(); i++)
+    for (int i = 0; i < word.size(); i++)
     {
-        for(int j = i + 1; j < word.size(); j++)
+        for (int j = i + 1; j < word.size(); j++)
         {
-            if(word[i] == word[j])
+            if (word[i] == word[j])
             {
                 return word[i];
             }
@@ -18,13 +18,13 @@ char Hard::firstRepeat(string word)
 string Hard::tweakLetters(string word, vector<int> array)
 {
     string newWord = "";
-    for(int i = 0; i < word.size(); i++)
+    for (int i = 0; i < word.size(); i++)
     {
-        if(word[i] + array[i] > 'z')
+        if (word[i] + array[i] > 'z')
         {
             newWord += static_cast<char>('a');
         }
-        else if(word[i] + array[i] < 'a')
+        else if (word[i] + array[i] < 'a')
         {
             newWord += static_cast<char>('z');
         }
@@ -39,21 +39,21 @@ string Hard::tweakLetters(string word, vector<int> array)
 int Hard::findOdd(vector<int> array)
 {
     int cnt;
-    for(int i = 0; i < array.size(); i++)
+    for (int i = 0; i < array.size(); i++)
     {
         cnt = 1;
-        for(int j = 0; j < array.size(); j++)
+        for (int j = 0; j < array.size(); j++)
         {
-            if(i == j)
+            if (i == j)
             {
                 continue;
             }
-            if(array[j] == array[i])
+            if (array[j] == array[i])
             {
                 cnt++;
             }
         }
-        if(cnt % 2 == 1)
+        if (cnt % 2 == 1)
         {
             return array[i];
         }
@@ -64,7 +64,7 @@ int Hard::letterDistance(string word1, string word2)
 {
     int distance = 0;
     int string_length = word1.size() > word2.size() ? word2.size() : word1.size();
-    for(int i = 0; i < string_length; i++)
+    for (int i = 0; i < string_length; i++)
     {
         distance += abs(static_cast<int>(word1[i] - word2[i] + '\0'));
     }
@@ -76,12 +76,12 @@ vector<string> Hard::makeBox(int n)
 {
     vector<string> box;
     string line;
-    for(int i = 0; i < n; i++)
+    for (int i = 0; i < n; i++)
     {
         line = "";
-        for(int j = 0; j < n; j++)
+        for (int j = 0; j < n; j++)
         {
-            if(i == 0 || i == n - 1 || j == 0 || j == n - 1)
+            if (i == 0 || i == n - 1 || j == 0 || j == n - 1)
             {
                 line += "#";
             }
@@ -98,18 +98,18 @@ vector<string> Hard::makeBox(int n)
 int Hard::primeNumbers(int n)
 {
     int cnt = 0;
-    for(int i = 2; i < n; i++)
+    for (int i = 2; i < n; i++)
     {
         bool isPrime = true;
-        for(int j = 2; j < i; j++)
+        for (int j = 2; j < i; j++)
         {
-            if(i % j == 0)
+            if (i % j == 0)
             {
                 isPrime = false;
                 break;
             }
         }
-        if(isPrime)
+        if (isPrime)
         {
             cnt++;
         }
@@ -121,10 +121,10 @@ string Hard::mysteryFunc(string str)
 {
     string newStr = "", prevstr;
     int cnt = 0;
-    for(auto string_character : str)
+    for (auto string_character : str)
     {
         int str_int = static_cast<int>(string_character - '0');
-        if( str_int > 0 && str_int  < 10)
+        if (str_int > 0 && str_int < 10)
         {
             cnt = str_int;
         }
@@ -132,7 +132,7 @@ string Hard::mysteryFunc(string str)
         {
             newStr += prevstr = string_character;
         }
-        while(cnt > 1)
+        while (cnt > 1)
         {
             newStr += prevstr;
             cnt--;
@@ -144,9 +144,9 @@ string Hard::mysteryFunc(string str)
 bool Hard::cons(vector<int> array)
 {
     std::sort(array.begin(), array.end());
-    for(int i = 0; i < array.size() - 1; i++)
+    for (int i = 0; i < array.size() - 1; i++)
     {
-        if(array[i] + 1 != array[i + 1])
+        if (array[i] + 1 != array[i + 1])
         {
             return false;
         }
@@ -156,11 +156,11 @@ bool Hard::cons(vector<int> array)
 
 bool Hard::isValidHexCode(string str)
 {
-    if(str.length() > 7)
+    if (str.length() > 7)
     {
         return false;
     }
-    if(str[0] == '#')
+    if (str[0] == '#')
     {
         str = str.substr(1);
     }
@@ -168,9 +168,9 @@ bool Hard::isValidHexCode(string str)
     {
         return false;
     }
-    for(auto string_character : str)
+    for (auto string_character : str)
     {
-        if(string_character >= '0' && string_character <= '9')
+        if (string_character >= '0' && string_character <= '9')
         {
             continue;
         }
@@ -195,35 +195,35 @@ int Hard::countOnes(vector<int> array)
     bool ones = false;
     int cnt = 0;
     int cnt2 = 0;
-   for(int i = 0; i < array.size(); i++)
-   {
-      
-       if(array[i] == 1)
-       {
+    for (int i = 0; i < array.size(); i++)
+    {
+
+        if (array[i] == 1)
+        {
             cnt++;
-       }
-       else
-       {
+        }
+        else
+        {
             cnt = 0;
             ones = false;
-       }
-       if (cnt > 1 && !ones)
-       {
+        }
+        if (cnt > 1 && !ones)
+        {
             cnt2++;
             ones = true;
-       }
-   }
+        }
+    }
     return cnt2;
 }
 
 int Hard::sharedLetters(string word1, string word2)
 {
     int cnt = 0;
-    for(int i = 0; i < word1.size(); i++)
+    for (int i = 0; i < word1.size(); i++)
     {
-        for(int j = 0; j < word2.size(); j++)
+        for (int j = 0; j < word2.size(); j++)
         {
-            if(word1[i] == word2[j])
+            if (word1[i] == word2[j])
             {
                 cnt++;
                 std::size_t pos = word2.find(word1[i]);
@@ -237,9 +237,9 @@ int Hard::sharedLetters(string word1, string word2)
 string Hard::toSnakeCase(string word)
 {
     string newWord = "";
-    for(int i = 0; i < word.size(); i++)
+    for (int i = 0; i < word.size(); i++)
     {
-        if(word[i] >= 'A' && word[i] <= 'Z')
+        if (word[i] >= 'A' && word[i] <= 'Z')
         {
             newWord += "_";
             newWord += static_cast<char>(word[i] + 32);
@@ -255,9 +255,9 @@ string Hard::toSnakeCase(string word)
 string Hard::toCamelCase(string word)
 {
     string newWord = "";
-    for(int i = 0; i < word.size(); i++)
+    for (int i = 0; i < word.size(); i++)
     {
-        if(word[i] == '_')
+        if (word[i] == '_')
         {
             newWord += static_cast<char>(word[i + 1] - 32);
             i++;
@@ -268,4 +268,49 @@ string Hard::toCamelCase(string word)
         }
     }
     return newWord;
+}
+
+bool Hard::canPlay(vector<string> hand, string face)
+{
+    for (auto card : hand)
+    {
+        for (auto card_type_char : card)
+        {
+            if (card_type_char == face[0] || card_type_char == face[face.length() - 1])
+            {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+string Hard::firstNonRepeatedCharacter(string sentence)
+{
+    if(sentence.size() == 1)
+    {
+        return sentence;
+    }
+    string newSentence;
+    bool foundRepeated;
+    for (int i = 0; i < sentence.length() - 1; i++)
+    {
+        foundRepeated = false;
+        int j = i;
+        while(!foundRepeated && j < sentence.length())
+        {
+            if (sentence[i] == sentence[j] && i != j)
+            {
+                foundRepeated = true;
+                sentence.erase(remove(sentence.begin(), sentence.end(), sentence[i]), sentence.end());
+            }
+            j++;
+        }
+        if (!foundRepeated)
+        {
+            newSentence = sentence[i];
+            return newSentence;
+        }
+    }
+    return "Invalid";
 }

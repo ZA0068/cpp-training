@@ -132,8 +132,28 @@ TEST(HardTests, CamelCase_snake_case) {
 	ASSERT_EQ(Hard::toCamelCase("is_loading"), "isLoading");
 	ASSERT_EQ(Hard::toCamelCase("x"), "x");
 }
-
-
+TEST(HardTests, UnoPart1){
+	ASSERT_EQ(Hard::canPlay({"yellow 3", "yellow 5", "red 8"}, "red 2"), true);
+	ASSERT_EQ(Hard::canPlay({"yellow 3", "yellow 5", "red 8"}, "blue 5"), true);
+	ASSERT_EQ(Hard::canPlay({"yellow 3", "blue 5", "red 8", "red 9"}, "green 4"), false);
+	ASSERT_EQ(Hard::canPlay({"yellow 3", "red 8"}, "green 2"), false);
+	ASSERT_EQ(Hard::canPlay({"yellow 5", "yellow 8", "red 0", "blue 0", "green 4"}, "green 2"), true);
+	ASSERT_EQ(Hard::canPlay({}, "green 2"), false);
+	ASSERT_EQ(Hard::canPlay({"red 2"}, "red 0"), true);
+	ASSERT_EQ(Hard::canPlay({"red 2", "red 8", "red 5"}, "blue 1"), false);
+}
+TEST(HardTests, FindTheFirstNonRepeatedCharacter) {
+  	ASSERT_EQ(Hard::firstNonRepeatedCharacter("the quick brown fox jumps then quickly blows air"), "f");
+	ASSERT_EQ(Hard::firstNonRepeatedCharacter("the misty examination pleases into the drab county"), "x");
+	ASSERT_EQ(Hard::firstNonRepeatedCharacter("it was then the darling top met the whispering wing"), "d");
+	ASSERT_EQ(Hard::firstNonRepeatedCharacter("it was then the frothy word met the round night"), "a");
+	ASSERT_EQ(Hard::firstNonRepeatedCharacter("is the remind zone better than the section"), "m");
+	ASSERT_EQ(Hard::firstNonRepeatedCharacter("b"), "b");
+	ASSERT_EQ(Hard::firstNonRepeatedCharacter("what if the brainy boss ate the afternoon"), "w");
+	ASSERT_EQ(Hard::firstNonRepeatedCharacter("the sympathetic mixture rejects into the leafy objective"), "p");
+	ASSERT_EQ(Hard::firstNonRepeatedCharacter("hheelloo"), "Invalid");
+	ASSERT_EQ(Hard::firstNonRepeatedCharacter(""), "Invalid");
+}
 
 
 

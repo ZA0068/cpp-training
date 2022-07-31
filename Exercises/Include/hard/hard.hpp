@@ -8,6 +8,7 @@ namespace Hard
 {
     bool cons(vector<int>);
     bool isValidHexCode(string);
+    bool canPlay(vector<string>, string);
 
     char firstRepeat(string);
     
@@ -17,6 +18,7 @@ namespace Hard
     int primeNumbers(int);
     int sharedLetters(string, string);
 
+    string firstNonRepeatedCharacter(string);
     string mysteryFunc(string);
     string toSnakeCase(string);
     string toCamelCase(string);
