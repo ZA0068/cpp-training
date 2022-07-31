@@ -343,7 +343,29 @@ bool Hard::overTwentyOne(vector<char> cards)
     }
     if (cnt > 21)
     {
-        return false;
+        return true;
     }
-    return true;
+    return false;
+}
+
+vector<int> Hard::returnUnique(vector<int> array)
+{
+    vector<int> newArray;
+    bool foundRepeated;
+    for (int i = 0; i < array.size(); i++)
+    {
+        foundRepeated = false;
+        for(int j = 0; j < array.size() && !foundRepeated; j++)
+        {
+            if (array[i] == array[j] && i != j)
+            {
+                foundRepeated = true;
+            }
+        }
+        if (!foundRepeated)
+        {
+            newArray.push_back(array[i]);
+        }
+    }
+    return newArray;
 }

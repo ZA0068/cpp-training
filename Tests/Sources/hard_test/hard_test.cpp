@@ -166,13 +166,34 @@ TEST(HardTests, RepeatingCycle) {
 	ASSERT_EQ(Hard::isRepeatingCycle({1, 1, 3, 1, 1}, 7), true);
 }
 TEST(HardTests, Blackjack) {
-	ASSERT_EQ(Hard::overTwentyOne({"A","2","3"}), false);
+	ASSERT_EQ(Hard::overTwentyOne({'A','2','3'}), false);
 	ASSERT_EQ(Hard::overTwentyOne({'A', 'J', 'K'}), false);
 	ASSERT_EQ(Hard::overTwentyOne({'A', 'J', 'K', 'Q'}), true);
 	ASSERT_EQ(Hard::overTwentyOne({'5', '3', '6', '6', '7', '9'}), true);
 }
-
-
+TEST(HardTests, TwoDistinctElements) {
+	ASSERT_EQ(Hard::returnUnique({1, 9, 8, 8, 7, 6, 1, 6}), std::vector<int>({9, 7}));
+	ASSERT_EQ(Hard::returnUnique({5, 5, 2, 4, 4, 4, 9, 9, 9, 1}), std::vector<int>({2, 1}));
+	ASSERT_EQ(Hard::returnUnique({9, 5, 6, 8, 7, 7, 1, 1, 1, 1, 1, 9, 8}), std::vector<int>({5, 6}));
+	ASSERT_EQ(Hard::returnUnique({4, 3, 9, 9, 1, 1, 6, 1, 6, 2, 4}), std::vector<int>({3, 2}));
+	ASSERT_EQ(Hard::returnUnique({44, 44, 44, 2, 55, 55, 55, 0, 66, 66, 66}), std::vector<int>({2, 0}));
+	ASSERT_EQ(Hard::returnUnique({-9, -9, -9, 7, -9, -9, 1}), std::vector<int>({7, 1}));
+	ASSERT_EQ(Hard::returnUnique({2, 2, -19, 2, 7, 7, 4, 9, 9, 0, 0, 3, 3, 3}), std::vector<int>({-19, 4}));
+}
+TEST(HardTests, CombinedConsecutiveSequence) {
+	ASSERT_EQ(Hard::consecutiveCombo({1, 4, 5, 7}, {2, 3, 6}), true);
+	ASSERT_EQ(Hard::consecutiveCombo({1, 4, 5, 6}, {2, 7, 8, 9}), false);
+	ASSERT_EQ(Hard::consecutiveCombo({1, 4, 5, 6}, {2, 3, 7, 8, 10}), false);
+	ASSERT_EQ(Hard::consecutiveCombo({7, 5, 4, 1}, {2, 3, 6, 8}), true);
+	ASSERT_EQ(Hard::consecutiveCombo({33, 34, 40}, {39, 38, 37, 36, 35, 32, 31, 30}), true);
+	ASSERT_EQ(Hard::consecutiveCombo({1, 4, 5, 6}, {2, 3, 7, 8, 10}), false);
+	ASSERT_EQ(Hard::consecutiveCombo({44, 46}, {45}), true);
+	ASSERT_EQ(Hard::consecutiveCombo({4, 3, 1}, {2, 5}), true);
+	ASSERT_EQ(Hard::consecutiveCombo({4, 3, 1}, {2, 5, 7, 6}), true);
+	ASSERT_EQ(Hard::consecutiveCombo({4, 3, 1}, {7, 6, 5}), false);
+	ASSERT_EQ(Hard::consecutiveCombo({4, 3, 1}, {0, 7, 6, 5}), false);
+	ASSERT_EQ(Hard::consecutiveCombo({44, 46}, {45}), true);
+}
 
 
 

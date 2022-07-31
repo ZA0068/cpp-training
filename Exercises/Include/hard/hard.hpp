@@ -25,5 +25,7 @@ namespace Hard
     string toSnakeCase(string);
     string toCamelCase(string);
     string tweakLetters(string, vector<int>);
+    
     vector<string> makeBox(int);
+    vector<int> returnUnique(vector<int>);
 }
