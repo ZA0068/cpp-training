@@ -11,6 +11,8 @@ namespace Hard
     bool canPlay(vector<string>, string);
     bool isRepeatingCycle(std::vector<int>, int);
     bool overTwentyOne(vector<char>);
+    bool consecutiveCombo(vector<int>, vector<int>);
+    bool isMiniSudoku(std::vector<std::vector<int>>);
 
     char firstRepeat(string);
     
@@ -25,6 +27,7 @@ namespace Hard
     string toSnakeCase(string);
     string toCamelCase(string);
     string tweakLetters(string, vector<int>);
+    string alphabetIndex(string);
     
     vector<string> makeBox(int);
     vector<int> returnUnique(vector<int>);

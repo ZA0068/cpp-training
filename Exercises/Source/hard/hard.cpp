@@ -369,3 +369,66 @@ vector<int> Hard::returnUnique(vector<int> array)
     }
     return newArray;
 }
+
+bool Hard::consecutiveCombo(vector<int> array1, vector<int> array2)
+{
+    vector<int> newArray(array1);
+    newArray.insert(newArray.end(), array2.begin(), array2.end());
+    std::sort(newArray.begin(), newArray.end());
+    for(int i = 0; i < newArray.size() - 1; i++)
+    {
+        if (newArray[i] + 1 != newArray[i + 1])
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool Hard::isMiniSudoku(vector<vector<int>> square)
+{
+    string num = "123456789";
+    for(auto line : square)
+    {
+        for(auto number : line)
+        {
+            if (number > 9 || number < 1)
+            {
+                return false;
+            }
+            auto string_number_iterator = num.find(std::to_string(number));
+            if(string_number_iterator != string::npos)
+            {
+                num.erase(string_number_iterator, 1);
+            }
+        }
+    }
+    if(num.size() != 0)
+    {
+        return false;
+    }
+    return true;
+}
+
+string Hard::alphabetIndex(string words)
+{
+    string newWords = "";
+    for (int i = 0; i < words.size(); i++)
+    {
+        if (words[i] >= 'A' && words[i] <= 'Z')
+        {
+            newWords += std::to_string((words[i] - 'A' + 1));
+        }
+        else if (words[i] >= 'a' && words[i] <= 'z')
+        {
+            newWords += std::to_string((words[i] - 'a' + 1));
+        }
+        else
+        {
+            continue;
+        }
+            newWords += ' ';
+    }
+    newWords.pop_back();
+    return newWords;
+}
